@@ -56,17 +56,24 @@ class _SamplePageState extends State<SamplePage> {
       itemCount: items.length,
       itemBuilder: (context, index) {
         final item = items[index];
-        return ListTile(
-          leading: const Icon(Icons.article),
-          title: Text(item['title'] ?? ''),
-          subtitle: Text(item['body'] ?? ''),
-          trailing: ElevatedButton(
-            onPressed: () => deleteItem(index),
-            style: ElevatedButton.styleFrom(
-              shape: const CircleBorder(),
-              padding: const EdgeInsets.all(12),
+        return Container(
+          decoration: BoxDecoration(
+            border: Border(
+              bottom: BorderSide(color: Colors.grey.shade300),
             ),
-            child: const Icon(Icons.delete, color: Colors.red),
+          ),
+          child: ListTile(
+            leading: const Icon(Icons.article),
+            title: Text(item['title'] ?? ''),
+            subtitle: Text(item['body'] ?? ''),
+            trailing: ElevatedButton(
+              onPressed: () => deleteItem(index),
+              style: ElevatedButton.styleFrom(
+                shape: const CircleBorder(),
+                padding: const EdgeInsets.all(12),
+              ),
+              child: const Icon(Icons.delete, color: Colors.red),
+            ),
           ),
         );
       },
